@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact SchoolHop Foundation about learner transport, route sponsorship, volunteering, and partnerships in the Eastern Cape.">
+    <meta name="keywords" content="contact SchoolHop Foundation, sponsor a school transport route, Eastern Cape">
+    <meta name="author" content="SchoolHop Foundation">
+    <title>Contact | SchoolHop Foundation</title>
+    <style>
+        :root { color-scheme: light; --green: #004d40; --deep-green: #00251a; --mint: #e0f2f1; --ink: #333; }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--ink); font: 16px/1.6 Arial, sans-serif; }
+        header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 5%; background: var(--green); color: #fff; }
+        .brand { color: #fff; font-weight: 700; font-size: 20px; text-decoration: none; }
+        nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+        nav a { color: #fff; font-weight: 700; text-underline-offset: 4px; }
+        nav a:focus-visible, .brand:focus-visible, button:focus-visible { outline: 3px solid #f6c453; outline-offset: 3px; }
+        .skip-link { position: absolute; left: -9999px; top: 8px; padding: 10px; background: #fff; color: var(--green); z-index: 2; }
+        .skip-link:focus { left: 8px; }
+        main { max-width: 900px; margin: 0 auto; padding: 48px 20px; }
+        h1, h2 { color: var(--green); line-height: 1.2; }
+        h1 { margin-top: 0; font-size: 2.2rem; }
+        .contact-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, .8fr); gap: 32px; }
+        form { display: grid; gap: 8px; }
+        label { margin-top: 8px; font-weight: 700; }
+        input, select, textarea { width: 100%; padding: 11px; border: 1px solid #777; border-radius: 4px; color: var(--ink); font: inherit; }
+        textarea { min-height: 140px; resize: vertical; }
+        input:focus, select:focus, textarea:focus { outline: 3px solid #80cbc4; outline-offset: 1px; }
+        button { justify-self: start; margin-top: 12px; padding: 12px 18px; border: 0; border-radius: 4px; background: var(--green); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+        .contact-details { padding: 20px; background: #f0f7f5; }
+        .status { min-height: 1.5em; font-weight: 700; }
+        .status.error { color: #a32020; }
+        .status.success { color: #285b2a; }
+        footer { padding: 24px 5%; background: var(--deep-green); color: #fff; }
+        footer a { color: #b2dfdb; }
+        @media (max-width: 700px) { header { align-items: flex-start; flex-direction: column; } .contact-layout { grid-template-columns: 1fr; } main { padding-top: 32px; } }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+    <a class="brand" href="index.html">SchoolHop Foundation</a>
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Product/Service</a>
+        <a href="index.html#marketing">Marketing Plan</a>
+        <a href="index.html#social">Media Strategy</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+</header>
+<main id="main-content">
+    <h1>Contact SchoolHop</h1>
+    <p>Contact us about route sponsorship, volunteering, partnerships, or learner transport.</p>
+    <div class="contact-layout">
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Send an enquiry</h2>
+            <form id="contact-form" action="https://formsubmit.co/ajax/info@schoolhop.org.za" method="POST">
+                <input type="hidden" name="_subject" value="New SchoolHop website enquiry">
+                <label for="lead-name">Full name</label>
+                <input type="text" id="lead-name" name="name" autocomplete="name" required minlength="2">
+                <label for="lead-email">Email address</label>
+                <input type="email" id="lead-email" name="email" autocomplete="email" required>
+                <label for="lead-interest">Reason for contacting us</label>
+                <select id="lead-interest" name="interest" required>
+                    <option value="">Select a reason</option>
+                    <option value="Sponsorship">Route sponsorship</option>
+                    <option value="Volunteering">Volunteering</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="General enquiry">General enquiry</option>
+                </select>
+                <label for="lead-message">Message</label>
+                <textarea id="lead-message" name="message" required minlength="10"></textarea>
+                <button type="submit">Send enquiry</button>
+            </form>
+            <p id="contact-status" class="status" role="status" aria-live="polite"></p>
+            <p>Enquiries are sent through FormSubmit to the email address listed here. FormSubmit processes the submitted details; the recipient must activate the service from its first confirmation email.</p>
+        </section>
+        <aside class="contact-details" aria-labelledby="details-heading">
+            <h2 id="details-heading">Contact details</h2>
+            <p>Email: <a href="mailto:info@schoolhop.org.za">info@schoolhop.org.za</a></p>
+            <p>Phone: <a href="tel:+27415550192">+27 41 555 0192</a></p>
+            <p>Eastern Cape, South Africa</p>
+        </aside>
+    </div>
+</main>
+<footer><p>SchoolHop Foundation | Eastern Cape, South Africa</p><p><a href="index.html">Return to Home</a></p></footer>
+<script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("contact-status");
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        status.className = "status";
+        status.textContent = "Sending your enquiry...";
+
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" }
+            });
+            const result = await response.json();
+
+            if (!response.ok || result.success === "false") {
+                throw new Error("The enquiry could not be sent.");
+            }
+
+            status.textContent = "Thank you. Your enquiry was sent successfully.";
+            status.classList.add("success");
+            form.reset();
+        } catch (error) {
+            status.textContent = "We could not send your enquiry. Please email info@schoolhop.org.za directly.";
+            status.classList.add("error");
+        }
+    });
+</script>
+</body>
+</html>
